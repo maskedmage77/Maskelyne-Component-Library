@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+header {
+  background-color: var(--background);
+  height: 3em;
+  box-shadow: 0px 0px 0.5em 0.5em #202020;
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  flex-grow: 1;
+}
+
+nav .selected {
+  color: var(--accentColor);
+}
+
+a {
+  color:white;
+  text-decoration: none;
+  padding: 0.5em;
+  margin: 0.5em;
+  display: inline-block;
+  text-align: center;
+}
+
+a:hover {
+  color: var(--accentColor);
+}

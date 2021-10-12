@@ -1,0 +1,31 @@
+:root {
+  /* --font1: #ffffff;
+  --font2: #C0C0C0;
+  --window: #101010;
+  --innerWindow: #181818;
+  --forms: #101010;
+  --red: #FE0000;
+  --cyan: #00FFFF;
+  --dmColor: lightgreen;
+  --playerColor: #D4AF37;
+  --spectatorColor: grey;
+  --grey: grey; */
+  --background: #282828;
+  --shadowSE: #303030;
+  --shadowNW: #202020;
+  --accentColor: #FF4E21;
+}
+
+body {
+  background-color: #303030;
+}
+
+.CardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CardWrapper div:first-child {
+  margin-top: 2em;
+}
