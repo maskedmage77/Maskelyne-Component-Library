@@ -1,6 +1,4 @@
 .NewsCard {
-  font-family: 'Montserrat', sans-serif;
-  color:white;
   text-decoration: none;
   padding: 0.5em;
   margin: 1em;
@@ -8,13 +6,23 @@
   max-width: 800px;
   display: inline-block;
   text-align: center;
-  background-color: var(--background);
-  border-radius: 0.5em;
-  box-shadow: 0.25em 0.25em 0.25em var(--shadowNW),
-              -0.25em -0.25em 0.25em var(--shadowSE);
+  background: rgb(0,0,0);
+  background: linear-gradient(315deg, rgba(2,2,2,1) 0%, rgba(20,20,20,1) 100%); 
+  border-radius: 1em;
 }
 
 .NewsCard p {
   text-align: left;
-  margin-left: 1em;
+  margin: 1em;
+}
+.NewsCard h1 {
+  color: var(--headerColor);
+  font-weight: 300;
+}
+
+@media only screen and (max-width: 600px) {
+  .NewsCard {
+    width: calc(100% - 2em);
+
+  }
 }

@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './components/Header';
-import NewsCard from './components/NewsCard';
+import HomeScreen from './screens/HomeScreen';
 
 function App() {
   return (
@@ -13,11 +13,7 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <div className="CardWrapper">
-            <NewsCard />
-            <NewsCard />
-            <NewsCard />
-          </div>
+          <HomeScreen />
         </Route>
         <Route exact path="/games">
         </Route>

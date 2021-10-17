@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 header {
-  background-color: var(--background);
   height: 3em;
-  box-shadow: 0px 0px 0.5em 0.5em #202020;
-  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, rgba(2,2,2,1) 0%, rgba(20,20,20,1) 100%); 
 }
 
 nav {
@@ -12,18 +8,19 @@ nav {
 }
 
 nav .selected {
-  color: var(--accentColor);
+  color: var(--headerColor);
 }
 
 a {
-  color:white;
+  color:var(--textColor);
   text-decoration: none;
   padding: 0.5em;
   margin: 0.5em;
   display: inline-block;
   text-align: center;
+  font-weight: 300;
 }
 
 a:hover {
-  color: var(--accentColor);
+  color: var(--headerColor);
 }
