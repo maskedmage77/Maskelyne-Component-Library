@@ -11,14 +11,25 @@ interface Props {
   | ReactNodeArray 
   | ReactPortal 
   | null 
-  | undefined; 
+  | undefined;
+  imageUri?: string;
 }
-export default function Circle({ children }: Props) {
-  return (
-    <div className="circle">
-      <div>
-      { children }
-      </div>
-    </div>
-  )
+export default function Circle({ children, imageUri }: Props) {
+     
+    if (imageUri) {
+      return (
+        <div className="circleContainer">
+          <img className="circleImage" src={imageUri} />
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="circleContainer">
+          <div className="circle">
+            { children }
+          </div>
+        </div>
+      )
+    }
 }

@@ -1,0 +1,31 @@
+.PersonCard {
+  padding: 1em;
+  display: flex;
+  background-color: var(--cardColor);
+  border-radius: 1em;
+  width: 12em;
+}
+
+.PersonCard .circle , .circleImage {
+  margin-right: 0.5em;
+}
+
+.PersonCard .Info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden
+}
+
+.PersonCard span {
+  font-size: 1.25;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.PersonCard span:first-of-type {
+  color: var(--headerColor);
+  font-size: 1.25;
+}
+

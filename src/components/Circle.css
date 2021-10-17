@@ -1,12 +1,37 @@
+.circleContainer {
+  display: inline-block;
+  vertical-align:top;
+}
+
 .circle {
-  height: 2em;
-  width: 2em;
+  align-items: center;
   background-color: var(--accentColor);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
   color: white;
+  display: flex;
   font-size: 1.5em;
+  font-weight: normal;
+  height: 2em;
+  justify-content: center;
+  overflow: hidden;
+  width: 2em;
+}
+
+.circleImage {
+  align-items: center;
+  /* background-color: var(--accentColor); */
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  font-size: 1.5em;
+  font-weight: normal;
+  height: 2em;
+  justify-content: center;
+  overflow: hidden;
+  width: 2em;
+}
+
+.circle img {
+  width:100%;
+  object-fit: cover;
 }

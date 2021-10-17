@@ -17,6 +17,7 @@
   --accentColor: #bb21ff;
   --headerColor: #ffffff;
   --textColor: #989898;
+  --cardColor: #202020;
 }
 
 body {
@@ -35,3 +36,4 @@ body {
 .CardWrapper .NewsCard:first-child {
   margin-top: 2em;
 }
+

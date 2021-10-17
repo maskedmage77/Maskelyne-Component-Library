@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './components/Header';
-import HomeScreen from './screens/HomeScreen';
+import StyleGuideScreen from './screens/StyleGuideScreen';
 
 function App() {
   return (
@@ -13,13 +13,15 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/">
-          <HomeScreen />
         </Route>
         <Route exact path="/games">
         </Route>
         <Route exact path="/characters">
         </Route>
         <Route exact path="/help">
+        </Route>
+        <Route exact path="/styles">
+          <StyleGuideScreen />
         </Route>
         <Route path="*">
         </Route>
