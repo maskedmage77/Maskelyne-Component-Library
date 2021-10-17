@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
+
+.CodeComponent {
+  background-color: var(--cardColorDark);
+  border-radius: 1em;
+  text-align: left;
+  overflow: scroll; 
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.CodeComponent::-webkit-scrollbar {
+  display: none;
+}
+
+.CodeComponent pre {
+  font-family: 'PT Mono', monospace;
+  font-size: 0.75em;
+  color: var(--accentColor);
+  padding: 1em;
+}

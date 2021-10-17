@@ -3,7 +3,7 @@ import toCurrency from '../utils/toCurrency'
 
 interface Props {
   data: Array<object>;
-  columnTypes: Array<string>;
+  columnTypes?: Array<string>;
 }
 
 export default function TableComponent({ data, columnTypes }: Props) {
@@ -41,7 +41,7 @@ export default function TableComponent({ data, columnTypes }: Props) {
           <tr key={rowIndex}>
             { Object.values(row).map((value, index) => (
               <td title={value} key={index}>
-                { dataFormatter(columnTypes[index], value) }
+                { columnTypes ? dataFormatter(columnTypes[index], value) : value }
               </td>  
             ))}
           </tr>
