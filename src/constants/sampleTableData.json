@@ -1,0 +1,44 @@
+[
+  {
+    "Name": "Jason Hurst",
+    "Role": "Web Developer",
+    "Salary": "57500",
+    "Start Date": "1628553600000"
+  },
+  {
+    "Name": "Joan Crane",
+    "Role": "Product Manager",
+    "Salary": "72000",
+    "Start Date": "1506126203000"
+  },
+  {
+    "Name": "Mitchell Gardner",
+    "Role": "Senior Developer",
+    "Salary": "85000",
+    "Start Date": "1402646613000"
+  },
+  {
+    "Name": "Hunter Belair",
+    "Role": "Graphic Designer",
+    "Salary": "46000",
+    "Start Date": "1575151571000"
+  },
+  {
+    "Name": "Autumn Justice",
+    "Role": "Junior Account Executive",
+    "Salary": "45000",
+    "Start Date": "1630355383000"
+  },
+  {
+    "Name": "Markus Smith",
+    "Role": "Chief Technical Officer",
+    "Salary": "93500",
+    "Start Date": "1188016456000"
+  },
+  {
+    "Name": "Vivian Upchurch",
+    "Role": "Creative Director",
+    "Salary": "61000",
+    "Start Date": "1416288329000"
+  }
+]

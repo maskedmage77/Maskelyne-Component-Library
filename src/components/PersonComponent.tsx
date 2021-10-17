@@ -9,7 +9,7 @@ interface Props {
 
 export default function PersonComponent({ imageUri, name, role }: Props) {
   return (
-    <div className="PersonCard">
+    <div className="PersonComponent">
       <Circle imageUri={ imageUri }></Circle>
       <div className="Info">
         <span title={ name }>{ name }</span>

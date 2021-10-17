@@ -13,13 +13,14 @@ interface Props {
   | null 
   | undefined;
   imageUri?: string;
+  altText?: string;
 }
-export default function Circle({ children, imageUri }: Props) {
+export default function Circle({ children, imageUri, altText }: Props) {
      
     if (imageUri) {
       return (
         <div className="circleContainer">
-          <img className="circleImage" src={imageUri} />
+          <img className="circleImage" alt={altText} src={imageUri} />
         </div>
       )
     }

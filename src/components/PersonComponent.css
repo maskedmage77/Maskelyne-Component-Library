@@ -1,4 +1,4 @@
-.PersonCard {
+.PersonComponent {
   padding: 1em;
   display: flex;
   background-color: var(--cardColor);
@@ -6,17 +6,17 @@
   width: 12em;
 }
 
-.PersonCard .circle , .circleImage {
+.PersonComponent .circle , .circleImage {
   margin-right: 0.5em;
 }
 
-.PersonCard .Info {
+.PersonComponent .Info {
   display: flex;
   flex-direction: column;
   overflow: hidden
 }
 
-.PersonCard span {
+.PersonComponent span {
   font-size: 1.25;
   text-align: left;
   text-overflow: ellipsis;
@@ -24,7 +24,7 @@
   overflow: hidden;
 }
 
-.PersonCard span:first-of-type {
+.PersonComponent span:first-of-type {
   color: var(--headerColor);
   font-size: 1.25;
 }

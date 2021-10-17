@@ -2,8 +2,6 @@
 :root {
   /* --font1: #ffffff;
   --font2: #C0C0C0;
-  --window: #101010;
-  --innerWindow: #181818;
   --forms: #101010;
   --red: #FE0000;
   --cyan: #00FFFF;
@@ -17,7 +15,9 @@
   --accentColor: #bb21ff;
   --headerColor: #ffffff;
   --textColor: #989898;
+  --dividerColor: #686868;
   --cardColor: #202020;
+  --cardColorDark: #181818;
 }
 
 body {
