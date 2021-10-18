@@ -1,5 +1,5 @@
 import { JSXElementConstructor, ReactElement, ReactNodeArray, ReactPortal } from 'react';
-import './HorizontalRegion.css';
+import './Region.css';
 
 interface Props { 
   children?: string 
@@ -12,11 +12,12 @@ interface Props {
   | ReactPortal 
   | null 
   | undefined; 
+  direction?: string;
 }
 
-export default function HorizontalRegion({ children } : Props) {
+export default function Region({ children, direction } : Props) {
   return (
-    <div className="HorizontalRegion">
+    <div className={`${direction === "vertical" ? "VerticalRegion" : "HorizontalRegion"}`}>
       { children }
     </div>
   )

@@ -10,8 +10,6 @@
   --spectatorColor: grey;
   --grey: grey; */
   --background: #000000;
-  --shadowSE: #303030;
-  --shadowNW: #202020;
   --accentColor: #bb21ff;
   --headerColor: #ffffff;
   --textColor: #989898;
@@ -25,7 +23,11 @@ body {
   font-family: 'Jost', sans-serif;
   color: var(--textColor);
   background-color: var(--background);
-  
+  font-size: 16px;
+}
+
+@media only screen and (min-width : 320px) and (max-width : 800px) {
+	body {-webkit-text-size-adjust: none;}
 }
 
 .CardWrapper {

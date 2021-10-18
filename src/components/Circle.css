@@ -5,7 +5,7 @@
 
 .circle {
   align-items: center;
-  background-color: var(--accentColor);
+  background-color: var(--cardColorDark);
   border-radius: 50%;
   color: white;
   display: flex;
@@ -19,7 +19,6 @@
 
 .circleImage {
   align-items: center;
-  /* background-color: var(--accentColor); */
   border-radius: 50%;
   color: white;
   display: flex;
@@ -34,4 +33,19 @@
 .circle img {
   width:100%;
   object-fit: cover;
+}
+
+.largeCircle {
+  height: 3em;
+  width: 3em;
+}
+
+.smallCircle {
+  height: 1em;
+  width: 1em;
+}
+
+.extraSmallCircle {
+  height: 0.5em;
+  width: 0.5em;
 }
