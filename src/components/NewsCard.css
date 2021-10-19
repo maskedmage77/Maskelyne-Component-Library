@@ -39,6 +39,5 @@
 @media only screen and (max-width: 600px) {
   .NewsCard {
     width: calc(100% - 4em);
-
   }
 }
