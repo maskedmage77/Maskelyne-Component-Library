@@ -12,12 +12,12 @@ interface Props {
   | ReactPortal 
   | null 
   | undefined; 
-  direction?: string;
+  vertical?: boolean;
 }
 
-export default function Region({ children, direction } : Props) {
+export default function Region({ children, vertical } : Props) {
   return (
-    <div className={`${direction === "vertical" ? "VerticalRegion" : "HorizontalRegion"}`}>
+    <div className={`${vertical ? "VerticalRegion" : "HorizontalRegion"}`}>
       { children }
     </div>
   )

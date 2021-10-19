@@ -13,8 +13,12 @@
   gap: 1em;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 65em) {
   .NewsCard > .HorizontalRegion {
+    flex-direction: column;
+    align-items: center;
+  }
+  .NewsCard > .VerticalRegion > .HorizontalRegion {
     flex-direction: column;
     align-items: center;
   }

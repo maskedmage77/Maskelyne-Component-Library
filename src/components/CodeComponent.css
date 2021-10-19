@@ -16,6 +16,6 @@
 .CodeComponent pre {
   font-family: 'PT Mono', monospace;
   font-size: 0.75em;
-  color: var(--accentColor);
+  color: var(--textColor);
   padding: 1em;
 }
