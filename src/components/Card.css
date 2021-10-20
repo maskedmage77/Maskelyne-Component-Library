@@ -1,0 +1,13 @@
+.Card {
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    background-color: var(--componentColor);
+    border-radius: 1em;
+    position: relative;
+}
+
+.Card>h2 {
+    text-align: center;
+}

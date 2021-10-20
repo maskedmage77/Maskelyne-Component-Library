@@ -6,6 +6,7 @@
     --textColor: #989898;
     --dividerColor: #686868;
     --componentColor: #202020;
+    --accentColor2: #404040;
     --cardColorDark: #181818;
     --codeFontColor: #21FF48;
     --cardColor: #101010;
@@ -36,4 +37,11 @@ body {
 
 .headerColor {
     color: var(--headerColor);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }

@@ -6,6 +6,8 @@ import CodeComponent from '../components/CodeComponent'
 import PhotoComponent from '../components/PhotoComponent'
 import { useState } from 'react'
 import PropertyComponent from '../components/documentation/PropertyComponent'
+import InputComponent from '../components/form/InputComponent'
+import Card from '../components/Card'
 
 export default function Homepage() {
 
@@ -25,6 +27,40 @@ export default function Homepage() {
       {/* Style Guide */}
       <NewsCard title="Maskelyne Design System"> 
         <p>The Maskelyne Design System is a collection of React Components designed to be performant, accessible, and beautiful. The Maskelyne Design System was created by Jacob Hines. </p>
+      </NewsCard>
+
+      {/* Input Component */}
+      <NewsCard title="Input Component">
+        <Region>
+          <Region vertical>
+          <h2>Outside a Card</h2>
+            <InputComponent 
+              placeholder="Email"
+              type="email"
+            />
+            <InputComponent 
+              placeholder="Username"
+            />
+            <InputComponent 
+              placeholder="Password"
+            />
+          </Region>
+          <Region vertical>
+            <Card>
+            <h2>Inside a Card</h2>
+            <InputComponent 
+              placeholder="Email"
+              type="email"
+            />
+            <InputComponent 
+              placeholder="Username"
+            />
+            <InputComponent 
+              placeholder="Password"
+            />
+            </Card>
+          </Region>
+        </Region>
       </NewsCard>
 
       {/* Person Component */}
