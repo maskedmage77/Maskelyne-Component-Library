@@ -1,0 +1,42 @@
+.Button , .DisabledButton, .LoadingButton {
+  width: 5em;
+  height: 2.5em;
+}
+
+.Button > button, 
+.DisabledButton > button, 
+.LoadingButton > button {
+  background-color: var(--accentColor2);
+  border: none;
+  border-radius: 0.5em;
+  font-family: inherit;
+  color: inherit;
+  width: 5em;
+  height: 2.5em;
+  font-size: inherit;
+}
+
+.Button > button:hover {
+  color: var(--headerColor);
+  cursor: pointer;
+}
+
+.Button > button:active {
+  background-color: transparent;
+  border: 0.125em solid var(--accentColor2);
+}
+
+.DisabledButton > button:hover {
+  cursor: not-allowed;
+}
+
+.LoadingButton {
+  animation-name: loadingFade;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function:ease-in-out;
+}
+@keyframes loadingFade {
+  0%,100% {opacity: 1;}
+  50% {opacity: 0.5;}
+}

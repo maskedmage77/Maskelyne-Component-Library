@@ -11,12 +11,13 @@ interface Props {
   | ReactNodeArray 
   | ReactPortal 
   | null 
-  | undefined; 
+  | undefined;
+  centered?: boolean;
 }
 
-export default function Card({children}: Props) {
+export default function Card({ children , centered }: Props) {
   return (
-    <div className="Card">
+    <div className="Card" style={{ alignItems: centered ? 'center' : 'left' }}>
       { children }
     </div>
   )

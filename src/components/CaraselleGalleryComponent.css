@@ -1,0 +1,23 @@
+.CaraselleGalleryComponent {
+  /* background-color: #404040; */
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 1em;
+}
+
+.CaraselleGalleryComponent > img {
+  position: relative;
+  height: 100%;
+  animation-name: example;
+  animation-duration: 10s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  margin-right: 1em;
+  border-radius: 1em;
+}
+
+@keyframes example {
+  0%   {right:0px;}
+  100%  {right:100%;}
+}

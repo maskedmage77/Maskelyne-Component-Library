@@ -1,7 +1,7 @@
 import Circle from "./Circle";
 import './PersonComponent.css';
 import { MdMessage, MdVideocam, MdPhone } from 'react-icons/md';
-import { accentColor, headerColor } from '../constants/colors'
+import { headerColor } from '../constants/colors'
 import Region from "./Region";
 import StatusIndicator from "./StatusIndicator";
 
@@ -22,7 +22,6 @@ export default function PersonComponent({ size, imageUri, name, role, descriptio
   if (name) {
     const matches = name.match(/\b(\w)/g);
     initials = matches?.join('') + '';
-    console.log(initials)
   }
 
   switch (size) {

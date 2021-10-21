@@ -8,6 +8,6 @@
     position: relative;
 }
 
-.Card>h2 {
-    text-align: center;
+.Card > h2 {
+    margin: 0px
 }

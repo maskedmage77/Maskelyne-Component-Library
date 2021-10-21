@@ -1,9 +1,20 @@
+.InputComponent {
+  height: 2.5em;
+  width: 15em;
+}
+
 .InputComponent input {
     background: transparent;
     border: 0.125rem solid var(--accentColor2);
     border-radius: 0.5rem;
-    padding: 0.5rem;
-    color: var(--textColor)
+    padding: 0em;
+    padding-left: 1em;
+    
+    height: 2.25em;
+    color: var(--textColor);
+    width: 13.75em;
+    font-family: inherit;
+    font-size: inherit;
 }
 
 .InputComponent input:focus {
@@ -15,8 +26,8 @@
     opacity: 1;
 }
 
-@media only screen and (max-width: 57em) {
+/* @media only screen and (max-width: 57em) {
     .InputComponent input {
         font-size: 1.2rem;
     }
-}
+} */
