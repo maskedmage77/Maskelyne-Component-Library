@@ -5,51 +5,53 @@ import TableComponent from '../components/TableComponent'
 import CodeComponent from '../components/CodeComponent'
 import PhotoComponent from '../components/PhotoComponent'
 import PropertyComponent from '../components/documentation/PropertyComponent'
-import InputComponent from '../components/form/InputComponent'
+import Input from '../components/form/Input'
 import Card from '../components/Card'
-import Button from '../components/Button'
-import { Component } from 'react'
+import Button from '../components/form/Button'
+import { Component, useEffect, useState } from 'react'
+import Switch from '../components/form/Switch'
 
-
-type Props = {
-  
-}
+type Props = {}
 
 type State = {
   codeExample: string;
   controlledInput: string; // like this
 };
 
-export default class Homepage extends Component<Props,State> {
+export default function Homepage() {
   
-  constructor(Props: Props) {
-    super(Props);
+  // constructor(props: Props) {
+  //   super(props);
 
-    this.state = {
-      codeExample: '',
-      controlledInput: ''
-    };
+  //   this.state = {
+  //     codeExample: '',
+  //     controlledInput: ''
+  //   };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
+  //   this.handleChange = this.handleChange.bind(this);
+  // }
 
-  handleChange(event: { target: { value: string } }) {    
-    this.setState({controlledInput: event.target.value});  
-  }
+  // handleChange(event: { target: { value: string } }) {    
+  //   this.setState({controlledInput: event.target.value});  
+  // }
 
-  componentDidMount() {
+  const [codeExample,setCodeExample] = useState('');
+  const [controlledInput,setControlledInput] = useState('');
+
+  const onChange = (event: any) => {
+    setControlledInput(event.target.value);
+  };
+
+  useEffect(() => {
     fetch('./examples/exampleCode.txt')
     .then((r) => r.text())
     .then(text => {
-      this.setState({ codeExample: text });
+      setCodeExample(text);
     })  
-  }
+  }, [])
 
-  render() {
 
     const tableData = require('../constants/sampleTableData.json');
-
-    
 
     return (
       <div className="CardWrapper">
@@ -63,29 +65,31 @@ export default class Homepage extends Component<Props,State> {
           <Region>
             <Region vertical>
             <h2>Outside a Card</h2>
-              <InputComponent 
-                placeholder="controlled component"
-                value={this.state.controlledInput}
-                onChange={this.handleChange}
+              <Input 
+                placeholder="Controlled Input"
+                value={controlledInput}
+                onChange={onChange}
               />
-              <InputComponent 
+              <Input 
                 placeholder="Username"
               />
-              <InputComponent 
+              <Input 
                 placeholder="Password"
               />
             </Region>
             <Region vertical>
               <Card centered>
               <h2>Inside a Card</h2>
-              <InputComponent 
-                placeholder="Email"
+              <Input 
+                placeholder="Controlled Input"
                 type="email"
+                value={controlledInput}
+                onChange={onChange}
               />
-              <InputComponent 
+              <Input 
                 placeholder="Username"
               />
-              <InputComponent 
+              <Input 
                 placeholder="Password"
               />
               </Card>
@@ -137,12 +141,6 @@ export default class Homepage extends Component<Props,State> {
                 </Card>
               </Region>
             </Region>
-            <Region>
-              <InputComponent 
-                placeholder="Example Input"
-              />
-              <Button text="Button" />
-            </Region>
           </Region>
           <PropertyComponent
             name="text"
@@ -167,6 +165,40 @@ export default class Homepage extends Component<Props,State> {
             type="function"
             description="This can be used as if it was regular html button's onClick."
           />
+        </NewsCard>
+
+        {/* Switch Component */}
+        <NewsCard title="Switch Component">
+          <Region vertical>
+            <p>This component provides a stylized button.</p>
+            <Region>
+              <Region vertical>
+                <h2>Outside a Card</h2>
+                <Switch />
+                <Switch />
+              </Region>
+              <Region vertical>
+                <Card centered>
+                <h2>Inside a Card</h2>
+                <Switch />
+                <Switch />
+                </Card>
+              </Region>
+            </Region>
+          </Region>
+          <PropertyComponent
+            name="toggle"
+            optional
+            type="boolean"
+            description="The switch will be activated if true."
+          />
+          <PropertyComponent
+            name="onToggle"
+            optional
+            type="function"
+            description="Pass in a function to be called when toggled."
+          />
+          
         </NewsCard>
 
         {/* Person Component */}
@@ -287,7 +319,7 @@ export default class Homepage extends Component<Props,State> {
           <Region vertical>
             <p>The Code Component will allow for children to be passed in in the form of plain text. It uses an html pre tag to ignore html formatting. It also allows for scrolling inside the code component. Scrollbars are hidden for visual appeal.</p>
             <CodeComponent>         
-              { this.state.codeExample }
+              { codeExample }
             </CodeComponent>
           </Region>
         </NewsCard>
@@ -295,5 +327,4 @@ export default class Homepage extends Component<Props,State> {
       
       </div>
     )
-  }
 }

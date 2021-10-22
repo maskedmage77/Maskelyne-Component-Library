@@ -15,6 +15,7 @@
     width: 13.75em;
     font-family: inherit;
     font-size: inherit;
+    transition: 0.25s;
 }
 
 .InputComponent input:focus {
@@ -24,10 +25,10 @@
 .InputComponent input::placeholder {
     color: var(--accentColor2);
     opacity: 1;
+    
 }
 
-/* @media only screen and (max-width: 57em) {
-    .InputComponent input {
-        font-size: 1.2rem;
-    }
-} */
+
+.InputComponent  input:focus::placeholder {
+  color: transparent;
+}

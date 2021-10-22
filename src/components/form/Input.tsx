@@ -1,5 +1,5 @@
 import { ChangeEventHandler } from 'react'
-import './InputComponent.css'
+import './Input.css'
 
 interface Props {
   placeholder?: string;
