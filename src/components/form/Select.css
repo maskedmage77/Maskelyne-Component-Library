@@ -1,0 +1,47 @@
+.Select, .SelectMenu {
+  height: 2.5em;
+  width: 10em;
+  font: inherit;
+  background-color: var(--itemColor);
+  border: none;
+  position: relative;
+}
+
+.Select {
+  border-radius: 0.5em;
+}
+
+.SelectMenu {
+  border-radius: 0.5em 0.5em 0em 0em;
+}
+
+.Select p, .SelectMenu p {
+  padding: 0.5em 0.5em 0.5em 1em;
+  
+}
+
+.Select img, .SelectMenu img {
+  width: 2.5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.SelectMenu img {
+  transform: rotate(180deg);
+  
+}
+
+.Select div {
+  display: none;
+}
+
+.SelectMenu div, .SelectMenu > div > p:last-child {
+  background-color: var(--itemColor);
+  border-radius: 0em 0em 0.5em 0.5em;
+}
+
+.SelectMenu > div > p:hover {
+  background-color: var(--itemColorAlt);
+  transition: 0.25s;
+}

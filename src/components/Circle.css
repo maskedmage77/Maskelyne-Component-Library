@@ -5,7 +5,7 @@
 
 .circle {
   align-items: center;
-  background-color: var(--cardColorDark);
+  background-color: var(--componentColorAlt);
   border-radius: 50%;
   color: white;
   display: flex;

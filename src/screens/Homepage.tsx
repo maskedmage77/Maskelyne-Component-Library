@@ -8,39 +8,36 @@ import PropertyComponent from '../components/documentation/PropertyComponent'
 import Input from '../components/form/Input'
 import Card from '../components/Card'
 import Button from '../components/form/Button'
-import { Component, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Switch from '../components/form/Switch'
-
-type Props = {}
-
-type State = {
-  codeExample: string;
-  controlledInput: string; // like this
-};
+import Select from '../components/form/Select'
 
 export default function Homepage() {
+
+
+
   
-  // constructor(props: Props) {
-  //   super(props);
-
-  //   this.state = {
-  //     codeExample: '',
-  //     controlledInput: ''
-  //   };
-
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
-
-  // handleChange(event: { target: { value: string } }) {    
-  //   this.setState({controlledInput: event.target.value});  
-  // }
 
   const [codeExample,setCodeExample] = useState('');
   const [controlledInput,setControlledInput] = useState('');
+  const [selectedOption,setSelectedOption] = useState<string[]>([]);
 
   const onChange = (event: any) => {
-    setControlledInput(event.target.value);
+    setControlledInput(event.target);
   };
+
+  const onChange2 = (event: any) => {
+    setSelectedOption([event.currentTarget.textContent]);
+  }
+
+  const onChange3 = (event: any) => {
+    if (!selectedOption.includes(event.currentTarget.textContent)) {
+      if (selectedOption[0] === '') {
+        setSelectedOption([event.currentTarget.textContent]);
+      }
+      setSelectedOption([...selectedOption, event.currentTarget.textContent]);
+    }
+  }
 
   useEffect(() => {
     fetch('./examples/exampleCode.txt')
@@ -71,7 +68,9 @@ export default function Homepage() {
                 onChange={onChange}
               />
               <Input 
-                placeholder="Username"
+                placeholder="Error"
+                error
+                errorMessage="Sample Error Message"
               />
               <Input 
                 placeholder="Password"
@@ -87,7 +86,9 @@ export default function Homepage() {
                 onChange={onChange}
               />
               <Input 
-                placeholder="Username"
+                placeholder="Error"
+                error
+                errorMessage="Sample Error Message"
               />
               <Input 
                 placeholder="Password"
@@ -113,12 +114,54 @@ export default function Homepage() {
             type="string"
             description="A value can be provided to set the inputs value. This can be used in conjunction with onChange to create controlled inputs."
           />
-           <PropertyComponent
+          <PropertyComponent
             name="onChange"
             optional
             type="function"
             description="Provide a function to call once the value of the input has been changed."
           />
+          <PropertyComponent
+            name="error"
+            optional
+            type="boolean"
+            description="If set true the input will be red."
+          />
+          <PropertyComponent
+            name="errorMessage"
+            optional
+            type="string"
+            description="This message will replace the placeholder message if an error is true."
+          />
+        </NewsCard>
+
+        {/* Select Component */}
+        <NewsCard title="Select Component">
+          <Region vertical>
+          <p>{ selectedOption }</p>
+            <Select 
+            options={[
+              {
+                value:"0",
+                displayed:"Option 1",
+              },
+              {
+                value:"1",
+                displayed:"Option 2",
+
+              },
+              {
+                value:"2",
+                displayed:"Option 3"
+              },
+            ]}
+            singleItem={onChange2}
+            addItem={onChange3}
+            selected={selectedOption}
+            defaultText="default text"
+            multiselect
+          />
+          
+          </Region>
         </NewsCard>
 
         {/* Button Component */}

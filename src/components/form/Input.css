@@ -5,11 +5,10 @@
 
 .InputComponent input {
     background: transparent;
-    border: 0.125rem solid var(--accentColor2);
+    border: 0.125rem solid var(--itemColor);
     border-radius: 0.5rem;
     padding: 0em;
     padding-left: 1em;
-    
     height: 2.25em;
     color: var(--textColor);
     width: 13.75em;
@@ -19,16 +18,28 @@
 }
 
 .InputComponent input:focus {
-    border: 0.125em solid var(--textColor);
+    border-color: var(--textColor);
 }
 
 .InputComponent input::placeholder {
-    color: var(--accentColor2);
-    opacity: 1;
-    
+    color: var(--itemColor);
+    opacity: 1;   
 }
 
-
-.InputComponent  input:focus::placeholder {
+.InputComponent input:focus::placeholder,
+.InputComponent input.error:focus::placeholder {
   color: transparent;
 }
+
+.InputComponent input.error {
+  border-color: var(--red);
+}
+
+.InputComponent input.error::placeholder {
+  color: var(--red);
+  opacity: 1;   
+}
+
+/* .InputComponent input.error:focus {
+  border-color: var(--red);
+} */

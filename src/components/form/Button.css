@@ -1,12 +1,13 @@
 .Button , .DisabledButton, .LoadingButton {
   width: 5em;
   height: 2.5em;
+  display: flex;
 }
 
 .Button > button, 
 .DisabledButton > button, 
 .LoadingButton > button {
-  background-color: var(--accentColor2);
+  background-color: var(--itemColor);
   border: none;
   border-radius: 0.5em;
   font-family: inherit;
@@ -15,6 +16,7 @@
   height: 2.5em;
   font-size: inherit;
   transition: 0.25s;
+  padding: 0;
 }
 
 .Button > button:hover {

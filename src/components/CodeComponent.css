@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
 .CodeComponent {
-  background-color: var(--cardColorDark);
+  background-color: var(--componentColorAlt);
   border-radius: 1em;
   text-align: left;
   overflow: scroll; 

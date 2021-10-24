@@ -8,14 +8,14 @@
 }
 
 .TableComponent thead th {
-  background-color: var(--cardColorDark);
+  background-color: var(--componentColorAlt);
   color: var(--headerColor);
   overflow: hidden;
   padding: 0.75em;
 }
 
 .TableComponent tbody tr {
-  background-color: var(--cardColorDark);
+  background-color: var(--componentColorAlt);
 }
 .TableComponent tbody tr:nth-child(odd) {
   background-color: var(--componentColor);

@@ -20,7 +20,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--accentColor2);
+  background-color: var(--itemColor);
   border-radius: 1.25em;
   transition: 0.25s;
 }
@@ -38,9 +38,10 @@
 }
 
 input:checked + .slider {
-  background-color: #125c13;
+  background-color: var(--darkGreen);
 }
 
 input:checked + .slider:before {
-  transform: translateX(2em)
+  transform: translateX(2em);
+  background-color: var(--green);
 }

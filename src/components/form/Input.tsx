@@ -6,12 +6,26 @@ interface Props {
   type?: string;
   value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
+  error?: boolean;
+  errorMessage?: string;
 }
 
-export default function InputComponent({ placeholder, type, value, onChange }: Props) {
+export default function InputComponent({ 
+  placeholder, 
+  type, 
+  value,
+  onChange, 
+  error, 
+  errorMessage 
+}: Props) {
   return ( 
     <div className="InputComponent">
-      <input type={type} placeholder={placeholder} value={ value } onChange={ onChange }/>
+      <input type={type} 
+      placeholder={ error ? errorMessage : placeholder} 
+      className={ error ? "error" : ""} 
+      value={value} 
+      onChange={onChange}
+      />
     </div>
   )
 }
