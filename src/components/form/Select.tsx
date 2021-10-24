@@ -22,9 +22,7 @@ export default function Select({ options, singleItem, addItem, selected, multise
   const [title,setTitle] = useState(defaultText)
 
   function toggleMenu() {
-    if (menuToggle === false) {
       setMenuToggle(!menuToggle);
-    }
   }
 
   useEffect(() => {
@@ -36,17 +34,17 @@ export default function Select({ options, singleItem, addItem, selected, multise
   }, [selected]);
 
   useEffect(() => {
-
     function handleClickOutside(event: any) {
+      console.log(event.target)
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuToggle(!menuToggle);
+        setMenuToggle(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    // eslint-disable-next-line
   }, [menuRef])
 
   function selectItem(event: any) {
@@ -60,12 +58,12 @@ export default function Select({ options, singleItem, addItem, selected, multise
   }
 
   return (
-    <div className={` ${menuToggle ? 'SelectMenu' : 'Select'}`} onClick={toggleMenu} ref={menuRef}>
-      <p>{ title }</p>
-      <img src="/icons/chevron.svg" alt="" />
+    <div className={` ${menuToggle ? 'SelectMenu' : 'Select'}`} ref={menuRef}>
+      <p onClick={toggleMenu}>{ title }</p>
+      <img src="/icons/chevron.svg" alt="" onClick={toggleMenu}/>
       <div>
         { options.map((option, index) => {
-          return <p onClick={selectItem} key={index}>{ option.displayed }</p>
+          return <p onClick={selectItem} key={index} className={ selected.includes(option.displayed) ? 'Selected' : '' }>{ option.displayed }</p>
         })}
       </div>
     </div>

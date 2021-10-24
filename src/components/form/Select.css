@@ -1,6 +1,6 @@
 .Select, .SelectMenu {
   height: 2.5em;
-  width: 10em;
+  width: 15em;
   font: inherit;
   background-color: var(--itemColor);
   border: none;
@@ -44,4 +44,15 @@
 .SelectMenu > div > p:hover {
   background-color: var(--itemColorAlt);
   transition: 0.25s;
+}
+
+.SelectMenu > p, .Select > p {
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  width: 11.5em;
+}
+
+.SelectMenu > div > .Selected {
+  background-color: var(--itemColorAlt) !important;
 }

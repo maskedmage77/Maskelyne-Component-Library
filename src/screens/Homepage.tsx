@@ -14,16 +14,12 @@ import Select from '../components/form/Select'
 
 export default function Homepage() {
 
-
-
-  
-
   const [codeExample,setCodeExample] = useState('');
   const [controlledInput,setControlledInput] = useState('');
   const [selectedOption,setSelectedOption] = useState<string[]>([]);
 
   const onChange = (event: any) => {
-    setControlledInput(event.target);
+    setControlledInput(event.target.value);
   };
 
   const onChange2 = (event: any) => {
@@ -32,10 +28,11 @@ export default function Homepage() {
 
   const onChange3 = (event: any) => {
     if (!selectedOption.includes(event.currentTarget.textContent)) {
-      if (selectedOption[0] === '') {
-        setSelectedOption([event.currentTarget.textContent]);
-      }
-      setSelectedOption([...selectedOption, event.currentTarget.textContent]);
+      selectedOption[0] === ''
+      ? setSelectedOption([event.currentTarget.textContent])
+      : setSelectedOption([...selectedOption, event.currentTarget.textContent]);
+    } else {
+        setSelectedOption(selectedOption.filter(item => item !== event.currentTarget.textContent));
     }
   }
 
@@ -142,12 +139,11 @@ export default function Homepage() {
             options={[
               {
                 value:"0",
-                displayed:"Option 1",
+                displayed:"Example of a potential multi-line option",
               },
               {
                 value:"1",
                 displayed:"Option 2",
-
               },
               {
                 value:"2",
@@ -157,7 +153,7 @@ export default function Homepage() {
             singleItem={onChange2}
             addItem={onChange3}
             selected={selectedOption}
-            defaultText="default text"
+            defaultText="Multi Select"
             multiselect
           />
           
