@@ -5,6 +5,8 @@
   background-color: var(--itemColor);
   border: none;
   position: relative;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .Select {
@@ -17,22 +19,40 @@
 
 .Select p, .SelectMenu p {
   padding: 0.5em 0.5em 0.5em 1em;
-  
+  transition: 0.25s;
 }
 
-.Select img, .SelectMenu img {
-  width: 2.5em;
+.Select > div > svg, .SelectMenu > div > svg {
+  width: 1.5em;
   position: absolute;
+  padding: 0.5em;
   right: 0;
   top: 0;
 }
 
-.SelectMenu img {
+.SelectMenu > div > svg {
   transform: rotate(180deg);
-  
 }
 
-.Select div {
+.SelectMenu > div > div > div > svg {
+  display: none;
+  width: 1.5em;
+  position: absolute;
+  padding: 1em;
+  right: 0em;
+}
+
+.Select > div:last-child {
+  display: none;
+}
+
+.SelectMenu > div:last-child {
+  max-height: 15em;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.SelectMenu > div::-webkit-scrollbar {
   display: none;
 }
 
@@ -43,7 +63,6 @@
 
 .SelectMenu > div > p:hover {
   background-color: var(--itemColorAlt);
-  transition: 0.25s;
 }
 
 .SelectMenu > p, .Select > p {
@@ -53,6 +72,33 @@
   width: 11.5em;
 }
 
-.SelectMenu > div > .Selected {
+.SelectMenu > div > div > .Selected {
   background-color: var(--itemColorAlt) !important;
+}
+
+@media (pointer:none), (pointer:coarse) {
+  .SelectMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0em;
+    overflow: scroll;
+  }
+  .SelectMenu p {
+    padding: 1em;
+  }
+  .SelectMenu div > svg {
+    padding: 1em;
+  }
+  .SelectMenu > div > div > div > svg {
+    display:inline;
+  }
+  .SelectMenu > div > div > .Selected > svg:first-of-type {
+    display:none;
+  }
+  .SelectMenu > div:last-child {
+    max-height: none;
+  }
 }

@@ -2,9 +2,6 @@
 
 :root {
   --accentColor: #bb21ff;
-
-
-
   --darkGreen: #004000;
   --green: #009800;
   --yellow: #989800;
@@ -12,10 +9,9 @@
   --darkRed: #400000;
 
   --codeFontColor: #21FF48;
-  --headerColor: #ffffff;
 
+  --headerColor: #ffffff;
   --textColor: #989898;
-  --dividerColor: #686868;
   --itemColor: #404040;
   --itemColorAlt: #303030;
   --componentColor: #202020;
@@ -29,6 +25,7 @@ body {
   color: var(--textColor);
   background-color: var(--background);
   font-size: 16px;
+  
 }
 
 @media only screen and (min-width: 320px) and (max-width: 800px) {

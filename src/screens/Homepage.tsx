@@ -22,17 +22,18 @@ export default function Homepage() {
     setControlledInput(event.target.value);
   };
 
-  const onChange2 = (event: any) => {
-    setSelectedOption([event.currentTarget.textContent]);
-  }
-
-  const onChange3 = (event: any) => {
-    if (!selectedOption.includes(event.currentTarget.textContent)) {
-      selectedOption[0] === ''
-      ? setSelectedOption([event.currentTarget.textContent])
-      : setSelectedOption([...selectedOption, event.currentTarget.textContent]);
+  const handleSelect = (event: any) => {
+    const value = event.currentTarget.getAttribute("data-value");
+    if (event.ctrlKey) {
+      if (!selectedOption.includes(value)) {
+        selectedOption[0] === ''
+        ? setSelectedOption([value])
+        : setSelectedOption([...selectedOption, value]);
+      } else {
+        setSelectedOption(selectedOption.filter(item => item !== value));
+      }
     } else {
-        setSelectedOption(selectedOption.filter(item => item !== event.currentTarget.textContent));
+      setSelectedOption([value]);
     }
   }
 
@@ -50,8 +51,8 @@ export default function Homepage() {
     return (
       <div className="CardWrapper">
         {/* Style Guide */}
-        <NewsCard title="Maskelyne Design System"> 
-          <p>The Maskelyne Design System is a collection of React Components designed to be performant, accessible, and beautiful. The Maskelyne Design System was created by Jacob Hines. </p>
+        <NewsCard title="Maskelyne Component Library"> 
+          <p>The Maskelyne Component Library is a collection of React Components designed to be performant, accessible, and beautiful. The Maskelyne Component Library was created by Jacob Hines. </p>
         </NewsCard>
 
         {/* Input Component */}
@@ -149,12 +150,58 @@ export default function Homepage() {
                 value:"2",
                 displayed:"Option 3"
               },
+              {
+                value:"3",
+                displayed:"Option 4"
+              },
+              {
+                value:"4",
+                displayed:"Option 5"
+              },
+              {
+                value:"5",
+                displayed:"Option 6"
+              },
+              {
+                value:"6",
+                displayed:"Option 7"
+              },
+              {
+                value:"7",
+                displayed:"Option 8"
+              },
+              {
+                value:"8",
+                displayed:"Option 9"
+              },
+              {
+                value:"9",
+                displayed:"Option 10"
+              },
+              {
+                value:"10",
+                displayed:"Option 11"
+              },
+              {
+                value:"11",
+                displayed:"Option 12"
+              },
+              {
+                value:"12",
+                displayed:"Option 13"
+              },
+              {
+                value:"13",
+                displayed:"Option 14"
+              },
+              {
+                value:"14",
+                displayed:"Option 15"
+              }
             ]}
-            singleItem={onChange2}
-            addItem={onChange3}
+            onChange={handleSelect}
             selected={selectedOption}
             defaultText="Multi Select"
-            multiselect
           />
           
           </Region>
@@ -226,7 +273,7 @@ export default function Homepage() {
             </Region>
           </Region>
           <PropertyComponent
-            name="toggle"
+            name="toggled"
             optional
             type="boolean"
             description="The switch will be activated if true."

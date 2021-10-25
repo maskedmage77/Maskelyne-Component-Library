@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header>
       <nav>
-        <Link to="/" className={location === "/" ? "selected" : ""} >Maskelyne Design System</Link>
+        <Link to="/" className={location === "/" ? "selected" : ""} >Maskelyne Component Library</Link>
         <Link to="/help" className={location === "/help" ? "selected" : ""} >Help</Link>  
       </nav>
     </header>

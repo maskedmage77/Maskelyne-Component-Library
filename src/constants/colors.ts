@@ -4,7 +4,7 @@ export const headerColor = "#ffffff";
 export const textColor = "#989898";
 export const dividerColor = "#686868";
 export const cardColor = "#101010";
-export const cardColorDark = "#181818";
+export const cardColorAlt = "#181818";
 export const codeFontColor = "#21FF48";
 
 export const green = "#009800";

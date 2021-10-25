@@ -1,6 +1,6 @@
 import { ReactElement, JSXElementConstructor, ReactNodeArray, ReactPortal } from 'react';
 import './Circle.css';
-import { cardColorDark } from '../constants/colors'
+import { cardColorAlt } from '../constants/colors'
  
 interface Props { 
   children?: string 
@@ -48,7 +48,7 @@ export default function Circle({ children, imageUri, altText, size, color, borde
   else {
     return (
       <div className="circleContainer">
-        <div className={`circle ${ sizeClass }`} style={{backgroundColor: color, border: border === true ? `2px solid ${cardColorDark}` : '' }}>
+        <div className={`circle ${ sizeClass }`} style={{backgroundColor: color, border: border === true ? `2px solid ${cardColorAlt}` : '' }}>
           { initials ? initials : children }
         </div>
       </div>
