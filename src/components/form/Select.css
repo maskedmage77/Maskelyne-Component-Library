@@ -6,7 +6,6 @@
   border: none;
   position: relative;
   cursor: pointer;
-  z-index: 1;
 }
 
 .Select {
@@ -15,6 +14,11 @@
 
 .SelectMenu {
   border-radius: 0.5em 0.5em 0em 0em;
+  z-index: 1;
+}
+
+.SelectMenu > div:nth-child(2) {
+  border-top: 1px solid var(--itemColorAlt);
 }
 
 .Select p, .SelectMenu p {
@@ -61,8 +65,8 @@
   border-radius: 0em 0em 0.5em 0.5em;
 }
 
-.SelectMenu > div > p:hover {
-  background-color: var(--itemColorAlt);
+.SelectMenu > div > div > p:hover {
+  color: var(--headerColor);
 }
 
 .SelectMenu > p, .Select > p {
@@ -70,6 +74,7 @@
   overflow: hidden; 
   text-overflow: ellipsis;
   width: 11.5em;
+    opacity: 0.9;
 }
 
 .SelectMenu > div > div > .Selected {

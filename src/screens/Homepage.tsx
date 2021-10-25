@@ -15,25 +15,30 @@ import Select from '../components/form/Select'
 export default function Homepage() {
 
   const [codeExample,setCodeExample] = useState('');
+  const [selectCode,setSelectCode] = useState('');
   const [controlledInput,setControlledInput] = useState('');
-  const [selectedOption,setSelectedOption] = useState<string[]>([]);
+  const [selectedOptions,setSelectedOptions] = useState<string[]>([]);
 
   const onChange = (event: any) => {
     setControlledInput(event.target.value);
   };
 
   const handleSelect = (event: any) => {
+    const selectionLimit = 0;
     const value = event.currentTarget.getAttribute("data-value");
     if (event.ctrlKey) {
-      if (!selectedOption.includes(value)) {
-        selectedOption[0] === ''
-        ? setSelectedOption([value])
-        : setSelectedOption([...selectedOption, value]);
+      if (!selectedOptions.includes(value)) {
+        if (selectedOptions[0] === '') {
+          setSelectedOptions([value])
+          // @ts-ignore
+        } else if (selectedOptions.length < selectionLimit || selectionLimit === 0) {
+          setSelectedOptions([...selectedOptions, value]);
+        } 
       } else {
-        setSelectedOption(selectedOption.filter(item => item !== value));
+        setSelectedOptions(selectedOptions.filter(item => item !== value));
       }
     } else {
-      setSelectedOption([value]);
+      setSelectedOptions([value]);
     }
   }
 
@@ -43,6 +48,11 @@ export default function Homepage() {
     .then(text => {
       setCodeExample(text);
     })  
+    fetch('./examples/selectCode.txt')
+    .then((r) => r.text())
+    .then(text => {
+      setSelectCode(text);
+    }) 
   }, [])
 
 
@@ -135,76 +145,97 @@ export default function Homepage() {
         {/* Select Component */}
         <NewsCard title="Select Component">
           <Region vertical>
-          <p>{ selectedOption }</p>
+            <p>This component provides a dropdown select without using the native HTML select element. It has custom styling to look great on mobile as well as support multiselect without a ctrl key.</p>
             <Select 
-            options={[
-              {
-                value:"0",
-                displayed:"Example of a potential multi-line option",
-              },
-              {
-                value:"1",
-                displayed:"Option 2",
-              },
-              {
-                value:"2",
-                displayed:"Option 3"
-              },
-              {
-                value:"3",
-                displayed:"Option 4"
-              },
-              {
-                value:"4",
-                displayed:"Option 5"
-              },
-              {
-                value:"5",
-                displayed:"Option 6"
-              },
-              {
-                value:"6",
-                displayed:"Option 7"
-              },
-              {
-                value:"7",
-                displayed:"Option 8"
-              },
-              {
-                value:"8",
-                displayed:"Option 9"
-              },
-              {
-                value:"9",
-                displayed:"Option 10"
-              },
-              {
-                value:"10",
-                displayed:"Option 11"
-              },
-              {
-                value:"11",
-                displayed:"Option 12"
-              },
-              {
-                value:"12",
-                displayed:"Option 13"
-              },
-              {
-                value:"13",
-                displayed:"Option 14"
-              },
-              {
-                value:"14",
-                displayed:"Option 15"
-              }
-            ]}
-            onChange={handleSelect}
-            selected={selectedOption}
-            defaultText="Multi Select"
-          />
-          
+              options={[
+                {
+                  value:"0",
+                  displayed:"Example of a potential multi-line option",
+                },
+                {
+                  value:"1",
+                  displayed:"Option 2",
+                },
+                {
+                  value:"2",
+                  displayed:"Option 3"
+                },
+                {
+                  value:"3",
+                  displayed:"Option 4"
+                },
+                {
+                  value:"4",
+                  displayed:"Option 5"
+                },
+                {
+                  value:"5",
+                  displayed:"Option 6"
+                },
+                {
+                  value:"6",
+                  displayed:"Option 7"
+                },
+                {
+                  value:"7",
+                  displayed:"Option 8"
+                },
+                {
+                  value:"8",
+                  displayed:"Option 9"
+                },
+                {
+                  value:"9",
+                  displayed:"Option 10"
+                },
+                {
+                  value:"10",
+                  displayed:"Option 11"
+                },
+                {
+                  value:"11",
+                  displayed:"Option 12"
+                },
+                {
+                  value:"12",
+                  displayed:"Option 13"
+                },
+                {
+                  value:"13",
+                  displayed:"Option 14"
+                },
+                {
+                  value:"14",
+                  displayed:"Option 15"
+                }
+              ]}
+              onChange={handleSelect}
+              selected={selectedOptions}
+              defaultText="Multi Select"
+            />
+            <p>The Select Component must be a controlled component to function correctly. Below is an example of a controller function using typescript. This is the exact controller used in this application. Setting the selectionLimit to 0 will allow unlimited options to be selected. To limit the number of items selected change this variable.</p>
+            <CodeComponent>{ selectCode }</CodeComponent>
           </Region>
+          <PropertyComponent
+            name="options"
+            type="array<{value:string, displayed:string}>"
+            description="Provide an array of objects with a value and a displayed property in each object. The value will be what is returned as a selected array and the displayed the shown text."
+          />
+          <PropertyComponent
+            name="selected"
+            type="array<string>"
+            description="This array of string will be used to control what elements are selected."
+          />
+          <PropertyComponent
+            name="defaultText"
+            type="string"
+            description="This text will be displayed when no item or items are selected."
+          />
+          <PropertyComponent
+            name="onChange"
+            type="function"
+            description="Provide a function to handle a change in select."
+          />
         </NewsCard>
 
         {/* Button Component */}
@@ -361,24 +392,24 @@ export default function Homepage() {
             </Region>
             <div style={{ width: '100%'}}>
               <PropertyComponent
-                name="Uri"
+                name="uri"
                 type="string"
                 description="Provide the location of the image file."
               />
               <PropertyComponent
-                name="Width"
+                name="width"
                 type="number"
                 description="Determines the width of the image using the unit em."
               />
               <PropertyComponent
-                name="Height"
+                name="height"
                 optional
                 default_value="(equal to width)"
                 type="number"
                 description="Determines the height of the image using the unit em."
               />
               <PropertyComponent
-                name="Round"
+                name="round"
                 optional
                 default_value="false"
                 type="boolean"

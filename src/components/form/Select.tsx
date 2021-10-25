@@ -47,8 +47,15 @@ export default function Select({ options, selected, defaultText, onChange } : Pr
         setMenuToggle(false);
       }
     }
+    function handleEnterKey(event:any) {
+      if (event.keyCode === 13) {
+        setMenuToggle(false);
+      }
+    }
+    document.addEventListener("keyup", handleEnterKey);
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
+      document.addEventListener("keyup", handleEnterKey);
       document.removeEventListener("mousedown", handleClickOutside);
     };
     // eslint-disable-next-line

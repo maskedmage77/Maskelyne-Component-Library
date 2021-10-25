@@ -1,0 +1,20 @@
+const [selectedOptions,setSelectedOptions] = useState<string[]>([]);
+
+const handleSelect = (event: any) => {
+  const selectionLimit = 0;
+  const value = event.currentTarget.getAttribute("data-value");
+  if (event.ctrlKey) {
+    if (!selectedOptions.includes(value)) {
+      if (selectedOptions[0] === '') {
+        setSelectedOptions([value])
+        // @ts-ignore
+      } else if (selectedOptions.length < selectionLimit || selectionLimit === 0) {
+        setSelectedOptions([...selectedOptions, value]);
+      } 
+    } else {
+      setSelectedOptions(selectedOptions.filter(item => item !== value));
+    }
+  } else {
+    setSelectedOptions([value]);
+  }
+}
