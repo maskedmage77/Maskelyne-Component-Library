@@ -12,13 +12,13 @@ interface Props {
   | ReactPortal 
   | null 
   | undefined; 
-  title: string;
+  title?: string;
 }
 
 export default function NewsCard({ children, title }: Props) {
   return (
     <div className="NewsCard">
-      <h1>{ title }</h1>
+      { title && <h1>{ title }</h1> }
       { children }
     </div>
   );
