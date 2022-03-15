@@ -13,11 +13,14 @@ interface Props {
   | null 
   | undefined; 
   vertical?: boolean;
+  gapless?: boolean;
 }
 
-export default function Region({ children, vertical } : Props) {
+export default function Region({ children, vertical, gapless = false } : Props) {
   return (
-    <div className={`${vertical ? "VerticalRegion" : "HorizontalRegion"}`}>
+    <div className={`${vertical ? "VerticalRegion" : "HorizontalRegion"}`} 
+      style={{ gap: gapless ? '0em' : '1em'}}
+    >
       { children }
     </div>
   )

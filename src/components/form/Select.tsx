@@ -11,9 +11,10 @@ interface Props {
   selected: Array<string>;
   defaultText?: string;
   setSelected: Function;
+  limit?: number;
 }
 
-export default function Select({ options, selected, defaultText, setSelected } : Props) {
+export default function Select({ options, selected, defaultText, setSelected, limit = 0 } : Props) {
   
   const menuRef = useRef<any>();
 
@@ -38,7 +39,6 @@ export default function Select({ options, selected, defaultText, setSelected } :
     } else if (selected.length > 1) {
       setTitle(`${selected.length} items selected`);
     }
-    // eslint-disable-next-line
   }, [selected]);
 
   useEffect(() => {
@@ -58,7 +58,6 @@ export default function Select({ options, selected, defaultText, setSelected } :
       document.addEventListener("keyup", handleEnterKey);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-    // eslint-disable-next-line
   }, [menuRef])
 
   useEffect(() => {
@@ -71,7 +70,6 @@ export default function Select({ options, selected, defaultText, setSelected } :
       window.scrollTo(0,scrollPos);
     }  
     
-    // eslint-disable-next-line
   }, [menuToggle])
 
   function selectItem(event: any) {
@@ -87,14 +85,13 @@ export default function Select({ options, selected, defaultText, setSelected } :
   }
 
   function handleSelect  (event: any) {
-    const selectionLimit = 0;
     const value = event.currentTarget.getAttribute("data-value");
     if (event.ctrlKey) {
       if (!selected.includes(value)) {
         if (selected[0] === '') {
           setSelected([value])
           // @ts-ignore
-        } else if (selected.length < selectionLimit || selectionLimit === 0) {
+        } else if (selected.length < limit || limit === 0) {
           setSelected([...selected, value]);
         } 
       } else {
@@ -108,7 +105,6 @@ export default function Select({ options, selected, defaultText, setSelected } :
   return (
     <div className={` ${menuToggle ? 'SelectMenu' : 'Select'}`} ref={menuRef}>
       <p onClick={toggleMenu}>{ title }</p>
-      {/* <img src="/icons/chevron.svg" alt="" onClick={toggleMenu}/> */}
       <div onClick={toggleMenu}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke={textColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down" >
           <polyline points="6 9 12 15 18 9"></polyline>

@@ -11,6 +11,8 @@ import Button from '../components/form/Button'
 import { useEffect, useState } from 'react'
 import Switch from '../components/form/Switch'
 import Select from '../components/form/Select'
+import Checkbox from '../components/form/Checkbox'
+import RadioButton from '../components/form/RadioButton'
 
 export default function Homepage() {
 
@@ -121,7 +123,10 @@ export default function Homepage() {
         {/* Select Component */}
         <NewsCard title="Select Component">
           <Region vertical>
-            <p>This component provides a dropdown select without using the native HTML select element. It has custom styling to look great on mobile as well as support multiselect without a ctrl key.</p>
+            <p>This component provides a dropdown select without using the native HTML select element. 
+              It has custom styling to look great on mobile as well as support multiselect without a ctrl key. 
+              The Select Component must be a controlled component to function correctly.
+            </p>
             <Select 
               options={[
                 {
@@ -185,12 +190,10 @@ export default function Homepage() {
                   displayed:"Option 15"
                 }
               ]}
-              
               setSelected={setSelectedOptions}
               selected={selectedOptions}
               defaultText="Multi Select"
             />
-            <p>The Select Component must be a controlled component to function correctly. Below is an example of a controller function using typescript. This is the exact controller used in this application. Setting the selectionLimit to 0 will allow unlimited options to be selected. To limit the number of items selected change this variable.</p>
           </Region>
           <PropertyComponent
             name="options"
@@ -211,6 +214,12 @@ export default function Homepage() {
             name="setSelected"
             type="function"
             description="Provide a function to update the state of what is selected."
+          />
+           <PropertyComponent
+            name="limit"
+            type="number"
+            optional
+            description="This property determines the number of options that can be selected."
           />
         </NewsCard>
 
@@ -279,6 +288,100 @@ export default function Homepage() {
               </Region>
             </Region>
           </Region>
+          <PropertyComponent
+            name="toggled"
+            optional
+            type="boolean"
+            description="The switch will be activated if true."
+          />
+          <PropertyComponent
+            name="onToggle"
+            optional
+            type="function"
+            description="Pass in a function to be called when toggled."
+          />
+          
+        </NewsCard>
+
+        {/* Checkbox Component */}
+        <NewsCard title="Checkbox Component">
+          <Region vertical>
+            <p>This component provides a stylized Checkbox.</p>
+            <Region>
+              <Region vertical>
+                <h2>Outside a Card</h2>
+                <Checkbox />
+                <Checkbox />
+              </Region>
+              <Region vertical>
+                <Card centered>
+                <h2>Inside a Card</h2>
+                <Checkbox />
+                <Checkbox />
+                </Card>
+              </Region>
+              <Region vertical gapless>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><Checkbox small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><Checkbox small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><Checkbox small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><Checkbox small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><Checkbox small/>Example Item</p>
+              </Region>
+            </Region>
+          </Region>
+          <PropertyComponent
+            name="small"
+            optional
+            type="boolean"
+            description="Checkbox will be a smaller 1em size when true."
+          />
+          <PropertyComponent
+            name="toggled"
+            optional
+            type="boolean"
+            description="The switch will be activated if true."
+          />
+          <PropertyComponent
+            name="onToggle"
+            optional
+            type="function"
+            description="Pass in a function to be called when toggled."
+          />
+          
+        </NewsCard>
+
+        {/* Radio Button Component */}
+        <NewsCard title="Radio Button Component">
+          <Region vertical>
+            <p>This component provides a stylized Radio Button.</p>
+            <Region>
+              <Region vertical>
+                <h2>Outside a Card</h2>
+                <RadioButton />
+                <RadioButton />
+              </Region>
+              <Region vertical>
+                <Card centered>
+                <h2>Inside a Card</h2>
+                <RadioButton />
+                <RadioButton />
+                </Card>
+              </Region>
+              <Region vertical gapless>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><RadioButton small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><RadioButton small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><RadioButton small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><RadioButton small/>Example Item</p>
+                <p style={{ display: 'flex', justifyContent:'center', alignItems: 'center', gap: '0.5em'}}><RadioButton small/>Example Item</p>
+              </Region>
+            </Region>
+          </Region>
+          <PropertyComponent
+            name="small"
+            optional
+            type="boolean"
+            description="Checkbox will be a smaller 1em size when true."
+          />
           <PropertyComponent
             name="toggled"
             optional
