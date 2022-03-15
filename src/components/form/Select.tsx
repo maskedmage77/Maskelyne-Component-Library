@@ -10,10 +10,10 @@ interface Props {
   }[];
   selected: Array<string>;
   defaultText?: string;
-  onChange: Function;
+  setSelected: Function;
 }
 
-export default function Select({ options, selected, defaultText, onChange } : Props) {
+export default function Select({ options, selected, defaultText, setSelected } : Props) {
   
   const menuRef = useRef<any>();
 
@@ -78,12 +78,31 @@ export default function Select({ options, selected, defaultText, onChange } : Pr
     if (!event.ctrlKey) {
       setMenuToggle(!menuToggle);
     }
-    onChange(event);
+    handleSelect(event);
   }
 
   function addItem(event: any) {
     event.ctrlKey = true;
-    onChange(event);
+    handleSelect(event);
+  }
+
+  function handleSelect  (event: any) {
+    const selectionLimit = 0;
+    const value = event.currentTarget.getAttribute("data-value");
+    if (event.ctrlKey) {
+      if (!selected.includes(value)) {
+        if (selected[0] === '') {
+          setSelected([value])
+          // @ts-ignore
+        } else if (selected.length < selectionLimit || selectionLimit === 0) {
+          setSelected([...selected, value]);
+        } 
+      } else {
+        setSelected(selected.filter(item => item !== value));
+      }
+    } else {
+      setSelected([value]);
+    }
   }
 
   return (

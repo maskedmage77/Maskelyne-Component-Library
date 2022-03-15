@@ -15,7 +15,6 @@ import Select from '../components/form/Select'
 export default function Homepage() {
 
   const [codeExample,setCodeExample] = useState('');
-  const [selectCode,setSelectCode] = useState('');
   const [controlledInput,setControlledInput] = useState('');
   const [selectedOptions,setSelectedOptions] = useState<string[]>([]);
 
@@ -23,36 +22,13 @@ export default function Homepage() {
     setControlledInput(event.target.value);
   };
 
-  const handleSelect = (event: any) => {
-    const selectionLimit = 0;
-    const value = event.currentTarget.getAttribute("data-value");
-    if (event.ctrlKey) {
-      if (!selectedOptions.includes(value)) {
-        if (selectedOptions[0] === '') {
-          setSelectedOptions([value])
-          // @ts-ignore
-        } else if (selectedOptions.length < selectionLimit || selectionLimit === 0) {
-          setSelectedOptions([...selectedOptions, value]);
-        } 
-      } else {
-        setSelectedOptions(selectedOptions.filter(item => item !== value));
-      }
-    } else {
-      setSelectedOptions([value]);
-    }
-  }
-
   useEffect(() => {
     fetch('./examples/exampleCode.txt')
     .then((r) => r.text())
     .then(text => {
       setCodeExample(text);
     })  
-    fetch('./examples/selectCode.txt')
-    .then((r) => r.text())
-    .then(text => {
-      setSelectCode(text);
-    }) 
+    
   }, [])
 
 
@@ -209,12 +185,12 @@ export default function Homepage() {
                   displayed:"Option 15"
                 }
               ]}
-              onChange={handleSelect}
+              
+              setSelected={setSelectedOptions}
               selected={selectedOptions}
               defaultText="Multi Select"
             />
             <p>The Select Component must be a controlled component to function correctly. Below is an example of a controller function using typescript. This is the exact controller used in this application. Setting the selectionLimit to 0 will allow unlimited options to be selected. To limit the number of items selected change this variable.</p>
-            <CodeComponent>{ selectCode }</CodeComponent>
           </Region>
           <PropertyComponent
             name="options"
@@ -232,9 +208,9 @@ export default function Homepage() {
             description="This text will be displayed when no item or items are selected."
           />
           <PropertyComponent
-            name="onChange"
+            name="setSelected"
             type="function"
-            description="Provide a function to handle a change in select."
+            description="Provide a function to update the state of what is selected."
           />
         </NewsCard>
 
